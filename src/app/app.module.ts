@@ -5,6 +5,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MoviesService } from '../services/movies.service';
+
 
 @NgModule({
   declarations: [
@@ -13,15 +17,20 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage
   ],
+  
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    MoviesService,
+   { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
+
 export class AppModule { }
