@@ -11,6 +11,7 @@ export class MoviesService {
     constructor(private http: HttpClient) { }
 
 
+    //check these GET HTTP
     getMovies(): Observable<any> {
         const url = `${this.apiUrl}?s=batman&apikey=${this.apiKey}`;
         return this.http.get(url);
