@@ -1,22 +1,14 @@
 
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { MoviesPage } from './movies';
 import { IonicPageModule } from 'ionic-angular';
-
-//router or by component implement MoviesPage path
+import { MoviesPage } from './movies';
 
 @NgModule({
+  declarations: [
+    MoviesPage
+  ],
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
     IonicPageModule.forChild(MoviesPage)
   ],
-
-  declarations: [MoviesPage]
 })
-
-export class MoviesPageModule {} 
+export class MoviesPageModule {}

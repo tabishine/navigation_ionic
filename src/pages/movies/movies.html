@@ -1,29 +1,18 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title> Movies </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-list>
-
-    
-    <ion-item
-      button *ngFor="let item of (results | async)"
-      [routerLink]="['/', 'movies', item.imdbID]">
-      
-      <ion-avatar slot="start">
-        <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
-      </ion-avatar>
 
 
-      <ion-label text-wrap>
-        <h3>{{ item.Title }}</h3>
-        <h6>{{ item.Year }}</h6>
-      </ion-label>
-
-    </ion-item>
-
-
-  </ion-list>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let movie of movies" (click)="openMovieDetails(movie.imdbID)">
+        <ion-card>
+          <ion-card-content>
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }} Poster">
+            <ion-card-title>{{ movie.Title }}</ion-card-title>
+            <p>{{ movie.Year }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

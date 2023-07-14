@@ -8,8 +8,8 @@ import { Observable} from 'rxjs';
 export class MoviesService {
     private apiUrl = 'http://www.omdbapi.com/';
     private apiKey = '905483bc';
-    constructor(private http: HttpClient) { }
 
+    constructor(private http: HttpClient) { }
 
     //check these GET HTTP
     getMovies(): Observable<any> {
@@ -22,6 +22,7 @@ export class MoviesService {
         return this.http.get(url);
       }
 }
+
 
 
 //getMovies with API links 

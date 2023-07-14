@@ -1,25 +1,35 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { IonicPage} from 'ionic-angular';
-@IonicPage()
+import { Observable } from 'rxjs';
+import { NavController } from 'ionic-angular';
+
 @Component({
   selector: 'page-movies',
-  templateUrl: 'movies.html',
-  styleUrls: ['movies.scss'],
+  templateUrl: './movies.html',
+  //styleUrls: ['movies.scss'],
 })
 
-export class MoviesPage  {
+export class MoviesPage implements OnInit  {
   results: Observable<any>;
-  type: string;
-
-  //questions ???
   
-  constructor(private moviesService: MoviesService){}
-  searchChanged() {
-    this.results = this.moviesService.getMovies();
+  constructor(private moviesService: MoviesService, private navCtrl: NavController){}
+  
+  ngOnInit() {
+    this.moviesService.getMovies().subscribe(
+      (response) => {
+        // Обработка полученного списка фильмов
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
   }
-  } 
- 
+  openMovieDetails(imdbID: string) {
+    this.navCtrl.push('MovieDetailPage', {imdbID: imdbID} );
+  }
+  
+}
 
  
