@@ -6,16 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from '../services/movies.service';
 import { MoviesPage } from '../pages/movies/movies';
 import { MovieDetailPage } from '../pages/movie-detail/movie-detail';
-//import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    //HomePage,
+    HomePage,
     MoviesPage,
     MovieDetailPage //app.component - root to HomePage
   ],
@@ -24,8 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports:  [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule,
-    AppRoutingModule
+    HttpClientModule
   ],
 
   bootstrap: [MyApp],
