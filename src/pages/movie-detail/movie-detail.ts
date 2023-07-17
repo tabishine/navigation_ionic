@@ -6,7 +6,6 @@ import { MoviesService } from '../../services/movies.service';
 @Component({
   selector: 'page-movie-detail',
   templateUrl: './movie-detail.html',
-  //styleUrls: ['./movie-detail.scss'],
 })
 
 
@@ -14,7 +13,9 @@ import { MoviesService } from '../../services/movies.service';
 export class MovieDetailPage  {
   movieDetails: any = {};
 
+
  //sort by ID 
+
   constructor(
     private moviesService: MoviesService, private navParams: NavParams) {}
     ionViewDidLoad() {

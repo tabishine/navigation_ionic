@@ -1,33 +1,7 @@
-// import { Component } from '@angular/core';
-// import { NavController } from 'ionic-angular';
-// import { MoviesPage } from '../movies/movies';
-
-// @Component({
-//   selector: 'page-home',
-//   templateUrl: 'home.html'
-// })
-// export class HomePage {
-//   navItems: any[];
-//   navigateToMovies() {
-//     this.navCtrl.push(MoviesPage)
-//   }
-
-
-//   constructor(public navCtrl: NavController) {
-//     this.navItems = [
-//       { title: 'Home', page: 'AboutPage' },
-//       { title: 'About', page: 'AboutPage' },
-//       { title: 'Contact', page: 'ContactPage' },
-//       { title: 'Movies', page: 'MoviesPage' },
-
-//     ];
-
-//   }
-
-// }
 
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MovieDetailPage } from '../movie-detail/movie-detail';
 import { MoviesPage } from '../movies/movies';
 
 @Component({
@@ -35,9 +9,16 @@ import { MoviesPage } from '../movies/movies';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(public navCtrl: NavController) {}
-
-  navigateToMovies() {
-    this.navCtrl.push(MoviesPage);
+  navItems: any[];
+  constructor(public navCtrl: NavController) {
+    this.navItems = [
+      { title: 'Movies', icon: 'film', page: MoviesPage },
+      { title: 'MovieDetail', icon: 'film', page: MovieDetailPage },
+    ];
+  }
+  //app starts here
+  openMoviesPage() {
+     this.navCtrl.push(MoviesPage)
   }
 }
+
